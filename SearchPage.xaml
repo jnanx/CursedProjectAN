@@ -1,0 +1,44 @@
+﻿<Page x:Class="CursedProjectAN.SearchFrame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:CursedProjectAN"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="SearchFrame">
+
+    <Page.Background>
+        <ImageBrush ImageSource="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\beach.jpg" Stretch="fill"/>
+    </Page.Background>
+    <Grid>
+        <Border BorderBrush="LightGray" 
+                CornerRadius="15"
+                Background="White" 
+                BorderThickness="2"
+                HorizontalAlignment="Center" 
+                Height="54" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Center" 
+                Width="1000"/>
+
+        <ComboBox Background="Transparent" 
+                 Height="51"
+                 Width="200"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Margin="120,0,0,0" FontSize="11"
+                  >
+            <ComboBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource BrightDarkRedColor}"/>
+            </ComboBox.Foreground>
+            <ComboBox.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource BrightCoralColor}"/>
+            </ComboBox.BorderBrush>
+            <ComboBoxItem Content="mama"/>
+            <ComboBoxItem Content="papa"/>
+        </ComboBox>
+
+    </Grid>
+</Page>

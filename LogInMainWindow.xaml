@@ -1,0 +1,56 @@
+﻿<Window x:Class="CursedProjectAN.LogInMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:CursedProjectAN"
+        mc:Ignorable="d"
+        Title="Главная" Icon="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png"  Height="800" Width="1200" WindowStartupLocation="CenterScreen" >
+   
+    <Grid Background="{StaticResource BrightLightYellow}">
+        <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png" 
+               Height="60" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,0,0,0"/>
+
+        <TextBlock Text="CookieTour" 
+                   FontSize="40"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="70,8,0,0" 
+                   Foreground="{StaticResource BrightDarkRed}"
+                   FontFamily="Bauhaus 93"/>
+
+        <Button Click="Account_Click"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Width="80" 
+                Height="80"  
+                materialDesign:ButtonAssist.CornerRadius="60"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="0,0,0,0"
+                Background="Transparent"
+                Foreground="{StaticResource BrightDarkRed}"
+                BorderBrush="Transparent">
+            
+            <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\profilepic.png"
+                   Stretch="UniformToFill"
+                   Height="50" Width="50"
+                   Margin="0,0,0,0"/>
+            
+        </Button>
+
+        <Frame x:Name="MainFrame" 
+               Source="LoginSearchPage.xaml" 
+               HorizontalAlignment="Left" 
+               Height="700" 
+               NavigationUIVisibility="Hidden"
+               VerticalAlignment="Top" 
+               Width="1200" 
+               Margin="0,70,0,0"  />
+        
+    </Grid>
+</Window>

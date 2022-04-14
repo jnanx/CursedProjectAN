@@ -1,0 +1,32 @@
+﻿<Application x:Class="CursedProjectAN.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CursedProjectAN"
+             StartupUri="LoginWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Brush x:Key="BrightLightYellow">#ffbf75</Brush>
+            <Brush x:Key="BrightYellow">#ffad5c</Brush>
+            <Brush x:Key="BrightOrange">#FF7F51</Brush>
+            <Brush x:Key="BrightCoral">#CE4257</Brush>
+            <Brush x:Key="BrightMagenta">#720026</Brush>
+            <Brush x:Key="BrightDarkRed">#4F000B</Brush>
+
+            <Color x:Key="BrightLightYellowColor">#ffbf75</Color>
+            <Color x:Key="BrightYellowColor">#ffad5c</Color>
+            <Color x:Key="BrightOrangeColor">#FF7F51</Color>
+            <Color x:Key="BrightCoralColor">#CE4257</Color>
+            <Color x:Key="BrightMagentaColor">#720026</Color>
+            <Color x:Key="BrightDarkRedColor">#4F000B</Color>
+            
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
