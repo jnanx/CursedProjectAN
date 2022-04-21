@@ -6,16 +6,23 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:CursedProjectAN"
         mc:Ignorable="d"
-        Title="Главная" Icon="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png"  Height="800" Width="1200" WindowStartupLocation="CenterScreen" >
+        Title="Главная" Icon="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png"  Height="800" Width="1210" WindowStartupLocation="CenterScreen" >
    
     <Grid Background="{StaticResource BrightLightYellow}">
-        <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Image Grid.Row="0" 
+            Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png" 
                Height="60" 
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Margin="10,0,0,0"/>
 
-        <TextBlock Text="CookieTour" 
+        <TextBlock Grid.Row="0" 
+            Text="CookieTour" 
                    FontSize="40"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
@@ -23,7 +30,8 @@
                    Foreground="{StaticResource BrightDarkRed}"
                    FontFamily="Bauhaus 93"/>
 
-        <Button Click="Account_Click"
+        <Button Grid.Row="0" 
+            Click="Account_Click"
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Top" 
                 Width="80" 
@@ -43,14 +51,16 @@
             
         </Button>
 
-        <Frame x:Name="MainFrame" 
+        <Frame Grid.Row="1" 
+            x:Name="MainFrame" 
                Source="LoginSearchPage.xaml" 
-               HorizontalAlignment="Left" 
-               Height="700" 
+               HorizontalAlignment="Center" 
+               Height="auto"
+               Width="auto"      
                NavigationUIVisibility="Hidden"
-               VerticalAlignment="Top" 
-               Width="1200" 
-               Margin="0,70,0,0"  />
+               VerticalAlignment="Center" 
+               Margin="0,0,0,0"  
+               />
         
     </Grid>
 </Window>

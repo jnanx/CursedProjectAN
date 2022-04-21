@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:CursedProjectAN"
         mc:Ignorable="d"
-        Title="Аккаунт" Icon="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png" Height="800" Width="1200" WindowStartupLocation="CenterScreen" Background="{StaticResource BrightLightYellow}">
+        Title="Аккаунт" Icon="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png" Height="800" Width="1210" WindowStartupLocation="CenterScreen" Background="{StaticResource BrightLightYellow}">
     <Grid >
         <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png" 
                Height="60" 

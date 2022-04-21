@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:CursedProjectAN"
         mc:Ignorable="d"
-        Title="Вход" Icon="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png" Height="800" Width="1200" WindowStartupLocation="CenterScreen">
+        Title="Вход" Icon="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png" Height="800" Width="1210" WindowStartupLocation="CenterScreen">
     <Grid Background="{StaticResource BrightYellow}">
 
         <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie.png" 
@@ -22,7 +22,7 @@
                    Margin="70,8,0,0" 
                    Foreground="{StaticResource BrightDarkRed}"
                    FontFamily="Bauhaus 93"/>
-        
+
         <TextBlock Text="Вход"
                    HorizontalAlignment="Center"
                    Margin="0,-550,0,0"
@@ -35,7 +35,7 @@
                  KeyDown="LogLoginBox_Down"
                  HorizontalAlignment="Center" 
                  VerticalAlignment="Center" 
-                 Margin="0,-300,0,0" 
+                 Margin="0,-400,0,0"
                  Width="300" 
                  Height="55"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -48,7 +48,7 @@
         <PasswordBox x:Name="LogPasswordBox"
                  HorizontalAlignment="Center" 
                  VerticalAlignment="Center" 
-                 Margin="0,-100,0,0" 
+                 Margin="0,-250,0,0"
                  Width="300" 
                  Height="55"
                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
@@ -60,7 +60,7 @@
 
         <Button Content="Войти" 
                 HorizontalAlignment="Center" 
-                Margin="0,250,0,0" 
+                Margin="0,-50,0,0" 
                 VerticalAlignment="Center" 
                 Width="230"
                 Height="50" 
@@ -90,7 +90,57 @@
                 FontSize="18"
                 FontWeight="SemiBold"
                 Click="ToRegistrationButton"/>
-        
 
+
+        <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie1.png"
+               Height="400"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               Margin="0,0,-575,-315"
+               Panel.ZIndex="2">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="50" Color="{DynamicResource BrightCoralColor}"/>
+            </Image.Effect>
+
+            <Image.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="135"/>
+                <TranslateTransform/>
+            </TransformGroup>
+            </Image.RenderTransform> 
+        </Image>
+        <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie1.png"
+               Height="200"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               Margin="0,0,-50,200"
+               Panel.ZIndex="1">
+            <Image.Effect>
+                <DropShadowEffect Color="{DynamicResource BrightOrangeColor}" BlurRadius="50"/>
+            </Image.Effect>
+        </Image>
+        <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\cookie1.png"
+               Height="100"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               
+               Margin="0,0,170,270"
+               Panel.ZIndex="3" 
+               RenderTransformOrigin="0.5,0.5"
+               >
+            <Image.Effect>
+                <DropShadowEffect Color="{DynamicResource BrightYellowColor}" BlurRadius="50"/>
+            </Image.Effect>
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="135"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Window>

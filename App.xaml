@@ -25,8 +25,35 @@
             <Color x:Key="BrightCoralColor">#CE4257</Color>
             <Color x:Key="BrightMagentaColor">#720026</Color>
             <Color x:Key="BrightDarkRedColor">#4F000B</Color>
+
+            <Style x:Key="CustomMaterialDesignPaperButton"
+        BasedOn="{StaticResource MaterialDesignPaperButton}"
+        TargetType="Button">
+                <Style.Resources>
+                    <Color x:Key="PrimaryHueMidBrushColor">#FF7F51</Color>
+                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource BrightOrangeColor}"/>
+                </Style.Resources>
+            </Style>
+
+            <Style x:Key="CustomMaterialDesignPaperNavButton"
+        BasedOn="{StaticResource MaterialDesignPaperButton}"
+        TargetType="local:NavButton">
+                <Style.Resources>
+                    <Color x:Key="PrimaryHueMidBrushColor">#FF7F51</Color>
+                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource BrightOrangeColor}"/>
+                </Style.Resources>
+            </Style>
+
+            <Style x:Key="CustomMaterialDesignFloatingHintTextBox"
+        BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+        TargetType="TextBox">
+                <Style.Resources>
+                   
+                </Style.Resources>
+            </Style>
             
         </ResourceDictionary>
 
+        
     </Application.Resources>
 </Application>

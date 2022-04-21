@@ -6,46 +6,235 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:CursedProjectAN"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1200"
+      MinHeight="700" MinWidth="1200" MaxHeight="1080" MaxWidth="1920"
       Title="LoginSearchWindow">
 
 
     <Page.Background>
         <ImageBrush ImageSource="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\beach.jpg" Stretch="fill"/>
     </Page.Background>
-    
+
+    <Page.Resources>
+        <Style x:Key="RectangleBorder" TargetType="Rectangle">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="StrokeThickness" Value="2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
     <Grid>
+
+        
         <Border BorderBrush="LightGray" 
                 CornerRadius="15"
                 Background="White" 
                 BorderThickness="2"
                 HorizontalAlignment="Center" 
-                Height="54" 
+                Height="80" 
                 Margin="0,0,0,0" 
                 VerticalAlignment="Center" 
-                Width="1000">
+                Width="auto"
+                Panel.ZIndex="1">
 
-        </Border>
-        <ComboBox Background="Transparent" 
-                 Height="51"
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Background="Transparent" 
+                 Height="60"
                  Width="200"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Center"
-                 Margin="120,0,0,0" 
+                 Margin="10,0,0,0" 
                   FontSize="20"
                  Text="Город вылета"
-                 Style="{StaticResource MaterialDesignComboBox}"
-                 materialDesign:ComboBoxAssist.ShowSelectedItem="False"
+                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                  materialDesign:HintAssist.Hint="Город вылета"
+                  materialDesign:HintAssist.Foreground="{StaticResource BrightMagenta}"
+                 materialDesign:ComboBoxAssist.ShowSelectedItem="True"
                   materialDesign:TextFieldAssist.UnderlineBrush ="{StaticResource BrightCoral}"
                   >
-            <ComboBox.Foreground>
-                <SolidColorBrush Color="{DynamicResource BrightDarkRedColor}"/>
-            </ComboBox.Foreground>
-            <ComboBox.BorderBrush>
-                <SolidColorBrush Color="{DynamicResource BrightCoralColor}"/>
-            </ComboBox.BorderBrush>
-            <ComboBoxItem Content="mama"/>
-            <ComboBoxItem Content="papa"/>
-        </ComboBox>
+                    <ComboBox.Foreground>
+                        <SolidColorBrush Color="{DynamicResource BrightDarkRedColor}"/>
+                    </ComboBox.Foreground>
+                    <ComboBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource BrightCoralColor}"/>
+                    </ComboBox.BorderBrush>
+                    <ComboBoxItem Content="Mama"/>
+                    <ComboBoxItem Content="Papa"/>
+                </ComboBox>
+
+                <ComboBox Background="Transparent" 
+                    Height="60"
+                    Width="200"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="5,0,0,0" 
+                    FontSize="20"
+                    Text="Город прибытия"
+                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                 materialDesign:HintAssist.Hint="Куда"
+                          materialDesign:HintAssist.IsFloating="True"
+                  materialDesign:HintAssist.Foreground="{StaticResource BrightMagenta}"
+                 materialDesign:ComboBoxAssist.ShowSelectedItem="True"
+                  materialDesign:TextFieldAssist.UnderlineBrush ="{StaticResource BrightCoral}"
+                  >
+                    <ComboBox.Foreground>
+                        <SolidColorBrush Color="{DynamicResource BrightDarkRedColor}"/>
+                    </ComboBox.Foreground>
+                    <ComboBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource BrightCoralColor}"/>
+                    </ComboBox.BorderBrush>
+                    <ComboBoxItem Content="Mama"/>
+                    <ComboBoxItem Content="Papa"/>
+                </ComboBox>
+
+                <DatePicker Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                    
+                    materialDesign:HintAssist.Hint="Дата вылета"
+                    materialDesign:HintAssist.Foreground="{StaticResource BrightDarkRed}"       
+                    materialDesign:HintAssist.IsFloating="True"
+                    materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource BrightCoral}"
+                            
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Height="60" 
+                    Width="200"
+                    FontSize="20"
+                            Foreground="{StaticResource BrightDarkRed}"
+                            BorderBrush="{StaticResource BrightCoral}"
+                            >
+
+                </DatePicker>
+
+                <Grid Margin="5,0,0,0"      
+                        Height="60"  
+                        >
+
+                    <Rectangle Stroke="{StaticResource BrightCoral}"
+                               Fill="Transparent"
+                               RadiusX="4"
+                               RadiusY="4"
+                               Style="{StaticResource RectangleBorder}"
+                               />
+                    <StackPanel Orientation="Horizontal" Margin="5"
+                                >
+
+                        <Button Style="{StaticResource CustomMaterialDesignPaperButton}"
+                            Click="MinusButton_Click"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+
+                                Width="60"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                BorderBrush="Transparent">
+                            <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\minuspic.png"
+                                   Stretch="UniformToFill"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                        </Button>
+                        <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\moonpic.png"
+                               Height="37"/>
+                        <TextBox x:Name="DayCounter" 
+                                 Margin="5,0,5,0" 
+                                 Width="40"
+                                 PreviewTextInput="DayCounter_PreviewTextInput"
+                                 Height="40"
+                                 TextAlignment="Center" 
+                                 Text="7" 
+                                 FontSize="20"
+                                 MaxLength="2"
+                                 materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                 CaretBrush="{StaticResource BrightOrange}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource BrightCoral}"
+                                 Foreground="{StaticResource BrightDarkRed}" TextChanged="DayCounter_TextChanged"/>
+                        <Button Click="PlusButton_Click"
+                                Style="{StaticResource CustomMaterialDesignPaperButton}"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+                                Width="60"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                BorderBrush="Transparent">
+                            <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\pluspic.png"
+                                   Stretch="UniformToFill"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+
+
+
+
+                </Grid>
+
+                <Grid Margin="5,0,10,0"      
+                        Height="60"  
+                        >
+                    <Rectangle Stroke="{StaticResource BrightCoral}"
+                               Fill="Transparent"
+                               RadiusX="4"
+                               RadiusY="4"
+                               Style="{StaticResource RectangleBorder}"
+                               />
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Button Style="{StaticResource CustomMaterialDesignPaperButton}"
+                            Click="MinusPeopleButton_Click"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+                                Width="60"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                BorderBrush="Transparent">
+                            <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\minuspic.png"
+                                   Stretch="UniformToFill"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                        </Button>
+                        <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\peoplepic.png"
+                               Height="37"/>
+                        <TextBox x:Name="PeopleCounter" 
+                                 Margin="5,0,5,0" 
+                                 Width="40"
+                                 PreviewTextInput="PeopleCounter_PreviewTextInput"
+                                 Height="40"
+                                 TextAlignment="Center" 
+                                 Text="2" 
+                                 FontSize="20"
+                                 MaxLength="2"
+                                 materialDesign:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                 CaretBrush="{StaticResource BrightOrange}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource BrightCoral}"
+                                 Foreground="{StaticResource BrightDarkRed}" TextChanged="PeopleCounter_TextChanged"/>
+                        <Button Click="PlusPeopleButton_Click"
+                                Style="{StaticResource CustomMaterialDesignPaperButton}"
+                                materialDesign:ButtonAssist.CornerRadius="15"
+                                Width="60"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                BorderBrush="Transparent">
+                            <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\pluspic.png"
+                                   Stretch="UniformToFill"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <local:NavButton Click="SearchButton_Click"
+                                Style="{StaticResource CustomMaterialDesignPaperNavButton}"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+                                Margin="0,0,10,0"
+                                Width="80"
+                                Height="60"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource BrightOrange}"
+                                BorderBrush="{StaticResource BrightCoral}"
+                                BorderThickness="2"
+                                NavUri="\FoundPage.xaml">
+                    <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\searchpic.png"
+                                   Stretch="UniformToFill"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                </local:NavButton>
+            </StackPanel>
+        </Border>
+
     </Grid>
 </Page>
