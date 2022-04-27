@@ -14,6 +14,151 @@
     </Page.Background>
 
     <Grid>
+        <DataGrid AutoGenerateColumns="False" 
+                  x:Name="AllTours" 
+                  HorizontalAlignment="Left" 
+                  Height="600" 
+                  Background="Transparent"
+                  Foreground="White"
+                  FontSize="18"
+                  Margin="0,100,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="1200"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=countryName}"
+                                    Header="Страна"
+                                    />
+                <DataGridTextColumn Binding="{Binding Path=cityName}"
+                                    Header="Город"/>
+                <DataGridTextColumn Binding="{Binding Path=startDate}"
+                                    Header="Начало"/>
+                <DataGridTextColumn Binding="{Binding Path=endDate}"
+                                    Header="Окончание"/>
+                <DataGridTextColumn Binding="{Binding Path=duration}"
+                                    Header="Продолжительность"/>
+                <DataGridTextColumn Binding="{Binding Path=numberOfVouchers}"
+                                    Header="Оставшиеся места"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <TextBox x:Name="SearchTextBox" 
+                 HorizontalAlignment="Left" 
+                 Height="55" 
+                 Margin="50,10,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="500"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 materialDesign:HintAssist.Hint="Поиск"
+                 materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource BrightCoral}"
+                 materialDesign:HintAssist.Foreground="{StaticResource BrightDarkRed}" 
+                 FontSize="20"
+                 Foreground="{StaticResource BrightDarkRed}"
+                 Panel.ZIndex="2"/>
+        <Button x:Name="SearchFromAll" 
+                Content="Поиск" 
+                HorizontalAlignment="Center" 
+                Margin="20,20,0,0" 
+                VerticalAlignment="Top" 
+                Width="90" 
+                Height="40"
+                Background="{StaticResource BrightCoral}"
+                Foreground="{StaticResource BrightDarkRed}"
+                BorderBrush="{StaticResource BrightCoral}"
+                BorderThickness="2"
+                FontSize="18"
+                Click="SearchFromAll_Click"
+                Panel.ZIndex="2"/>
+
+
+        <DataGrid AutoGenerateColumns="False" 
+                  x:Name="AllSearchedTours" 
+                  HorizontalAlignment="Left" 
+                  Height="628" 
+                  Background="Transparent"
+                  Foreground="White"
+                  FontSize="20"
+                  Margin="0,100,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="1200"
+                  IsReadOnly="True"
+                  Visibility="Hidden">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=countryName}"
+                                    Header="Страна"
+                                    />
+                <DataGridTextColumn Binding="{Binding Path=cityName}"
+                                    Header="Город"/>
+                <DataGridTextColumn Binding="{Binding Path=startDate}"
+                                    Header="Начало"/>
+                <DataGridTextColumn Binding="{Binding Path=endDate}"
+                                    Header="Окончание"/>
+                <DataGridTextColumn Binding="{Binding Path=duration}"
+                                    Header="Продолжительность"/>
+                <DataGridTextColumn Binding="{Binding Path=numberOfVouchers}"
+                                    Header="Оставшиеся места"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <CheckBox Content="Поиск по стране"
+                  x:Name="SearchWithCountry"
+                  HorizontalAlignment="Left" 
+                  Margin="50,75,0,0" 
+                  VerticalAlignment="Top"
+                  Style="{StaticResource MaterialDesignUserForegroundCheckBox}"
+                  Panel.ZIndex="2"
+                  Foreground="{StaticResource BrightMagenta}"
+                  />
+        <CheckBox Content="Поиск по городу"
+                  x:Name="SearchWithCity"
+                  HorizontalAlignment="Left" 
+                  Margin="190,75,0,0" 
+                  VerticalAlignment="Top"
+                  Style="{StaticResource MaterialDesignUserForegroundCheckBox}"
+                  Panel.ZIndex="2"
+                  Foreground="{StaticResource BrightMagenta}"/>
         
+        <DatePicker HorizontalAlignment="Left" 
+                    Visibility="Hidden"
+                    x:Name="PickStartDate"
+                    Margin="466,72,0,0" VerticalAlignment="Top"
+                    Panel.ZIndex="2"/>
+        
+        <CheckBox Content="Поиск по дате начала"
+                  x:Name="SearchWithStartDate"
+                  HorizontalAlignment="Left" 
+                  Margin="330,75,0,0" 
+                  VerticalAlignment="Top"
+                  Style="{StaticResource MaterialDesignUserForegroundCheckBox}"
+                  Panel.ZIndex="2"
+                  Foreground="{StaticResource BrightMagenta}"/>
+
+        <DatePicker HorizontalAlignment="Left" 
+                    Visibility="Hidden"
+                    x:Name="PickEndDate"
+                    Margin="647,72,0,0" VerticalAlignment="Top"
+                    Panel.ZIndex="2"/>
+        
+        <CheckBox Content="Поиск по дате окончания"
+                  x:Name="SearchWithEndDate"
+                  HorizontalAlignment="Left" 
+                  Margin="490,75,0,0" 
+                  VerticalAlignment="Top"
+                  Style="{StaticResource MaterialDesignUserForegroundCheckBox}"
+                  Panel.ZIndex="2"
+                  Foreground="{StaticResource BrightMagenta}"/>
+
+        <Rectangle Fill="{StaticResource BrightLightYellow}" 
+                   HorizontalAlignment="Left" 
+                   Height="95" 
+                   Margin="35,10,0,0" 
+                   RadiusY="10" 
+                   RadiusX="10" 
+                   Stroke="{StaticResource BrightLightYellow}"                 
+                   VerticalAlignment="Top" 
+                   Width="631" Panel.ZIndex="1"/>
+
     </Grid>
 </Page>

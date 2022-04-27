@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CursedProjectAN
 {
@@ -74,6 +76,11 @@ namespace CursedProjectAN
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void ToSearchAll_Click(object sender, RoutedEventArgs e)
         {
             var ClickedButton = e.OriginalSource as NavButton;
             NavigationService.Navigate(ClickedButton.NavUri);

@@ -19,11 +19,14 @@ namespace CursedProjectAN
     /// </summary>
     public partial class AccountWindow : Window
     {
+        Account account = Account.getInstance();
         public AccountWindow()
         {
             InitializeComponent();
+            AccountLoginBox.Text = account.login;
         }
 
+        
         private void BackToMain_Click(object sender, RoutedEventArgs e)
         {
             LogInMainWindow logInMainWindow = new LogInMainWindow();
@@ -37,5 +40,27 @@ namespace CursedProjectAN
             loginWindow.Show();
             this.Close();
         }
+
+  
+
+     
+
+        private void EditAcount_Click(object sender, RoutedEventArgs e)
+        {
+            AccountNameBox.IsEnabled = true;
+            AccountSurnameBox.IsEnabled = true;
+            AccountMiddleNameBox.IsEnabled = true;
+            AccountPassportNumberBox.IsEnabled = true;
+            AccountPassportSeriesBox.IsEnabled = true;
+            AccountEmailBox.IsEnabled = true;
+            AccountPhoneNumberBox.IsEnabled = true;
+            AccountSexBox.IsEnabled = true;
+        }
+
+        private void SaveAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
