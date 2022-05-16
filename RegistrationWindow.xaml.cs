@@ -35,7 +35,7 @@ namespace CursedProjectAN
                         SqlConnection toLogin = new SqlConnection(@"Data Source=LAPTOP-BFCVFHEM\SQLEXPRESS;Initial Catalog=TOUR_AGENCY;Integrated Security=True");
                         toLogin.Open();
                         int i = 0;
-                        SqlCommand login = new SqlCommand("SELECT login, password FROM users WHERE login = '" + RegLoginBox.Text + "' AND password ='" + RegPasswordBox.Password + "'", toLogin);
+                        SqlCommand login = new SqlCommand("SELECT login FROM users WHERE login = '" + RegLoginBox.Text + "'", toLogin);
                         login.ExecuteNonQuery();
                         DataTable containsi = new DataTable();
                         SqlDataAdapter convertsqltovs = new SqlDataAdapter(login);
@@ -49,9 +49,8 @@ namespace CursedProjectAN
                         "VALUES (@Login, @Password,  @RoleID)";
                             SqlParameter LoginParam = new SqlParameter("@Login", SqlDbType.NVarChar, 120);
                             SqlParameter PasswordParam =
-                                new SqlParameter("@Password", SqlDbType.NVarChar, 120);
+                            new SqlParameter("@Password", SqlDbType.NVarChar, 120);
                             SqlParameter RoleParam = new SqlParameter("@RoleID", SqlDbType.Char, 1);
-
                             LoginParam.Value = RegLoginBox.Text;
                             PasswordParam.Value = RegPasswordBox.Password;
                             RoleParam.Value = 1;
@@ -65,11 +64,11 @@ namespace CursedProjectAN
 
                             command.ExecuteNonQuery();
 
-                            LogInMainWindow logInMainWindow = new LogInMainWindow();
-                            logInMainWindow.Show();
-                            this.Close();
+                                LoginWindow loginwindow = new LoginWindow();
+                                loginwindow.Show();
+                                this.Close();
 
-                        }
+                            }
 
                         else
                         {

@@ -26,7 +26,7 @@
                    FontSize="30"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
-                   Margin="90,90,0,0" 
+                   Margin="92,90,0,0" 
                    Foreground="{StaticResource BrightDarkRed}"
                    />
 
@@ -223,13 +223,32 @@
                  FontSize="20"
                  Foreground="{StaticResource BrightDarkRed}"/>
 
+        <DatePicker x:Name="DateOfBirthPicker"
+                    IsEnabled="False"
+            Style="{StaticResource MaterialDesignDatePicker}"              
+                    materialDesign:HintAssist.Hint="Дата рождения"
+                    materialDesign:HintAssist.Foreground="{StaticResource BrightDarkRed}"       
+                    materialDesign:HintAssist.IsFloating="True"
+                    materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource BrightCoral}"                    
+                    Margin="910,150,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Height="60" 
+                    Width="200"
+                    FontSize="20"
+                            Foreground="{StaticResource BrightDarkRed}"
+                            BorderBrush="{StaticResource BrightCoral}"
+                            >
+
+        </DatePicker>
+        
         <ComboBox x:Name="AccountSexBox"
             Background="Transparent" 
                     Height="60"
                     Width="200"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Margin="910,150,0,0" 
+                    Margin="910,250,0,0" 
                     FontSize="20"
                     Text="Пол"
                   IsEnabled="False"
@@ -246,8 +265,8 @@
             <ComboBox.BorderBrush>
                 <SolidColorBrush Color="{DynamicResource BrightCoralColor}"/>
             </ComboBox.BorderBrush>
-            <ComboBoxItem Content="Ж"/>
-            <ComboBoxItem Content="М"/>
+            <ComboBoxItem Content="ж"/>
+            <ComboBoxItem Content="м"/>
         </ComboBox>
 
     </Grid>

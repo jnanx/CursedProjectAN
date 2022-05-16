@@ -31,5 +31,12 @@ namespace CursedProjectAN
             accountwindow.Show();
             this.Close();
         }
+
+        private void YoVacations_Click(object sender, RoutedEventArgs e)
+        {
+            MyVacatoinsWindow myVacatoinsWindow = new MyVacatoinsWindow();
+            myVacatoinsWindow.Show();
+            this.Close();
+        }
     }
 }

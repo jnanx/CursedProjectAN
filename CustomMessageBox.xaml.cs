@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -26,11 +27,13 @@ namespace CursedProjectAN
 
         //static CustomMessageBox customMessageBox;
 
-        //static MessageBoxResult result = MessageBoxResult.No;
-        public static void Show(string text)
+        static MessageBoxResult result = MessageBoxResult.Cancel;
+        public static MessageBoxResult Show(string text)
         {
             var cMessageBox = new CustomMessageBox();
             cMessageBox.TextMessageBox.Text = text;
+            cMessageBox.YesButton.Visibility = Visibility.Collapsed;
+            cMessageBox.NoButton.Visibility = Visibility.Collapsed;
             cMessageBox.Show();
             
 
@@ -38,9 +41,26 @@ namespace CursedProjectAN
             {
                 throw new ArgumentException($"\"{nameof(text)}\" не может быть пустым или содержать только пробел.", nameof(text));
             }
+
+            return result;
         }
 
-        private void OkButton_Click(object sender, RoutedEventArgs e)
+        public static MessageBoxResult ShowYN(string text)
+        {
+            var cMessageBox = new CustomMessageBox();
+            cMessageBox.TextMessageBox.Text = text;
+            cMessageBox.Show();
+
+
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                throw new ArgumentException($"\"{nameof(text)}\" не может быть пустым или содержать только пробел.", nameof(text));
+            }
+
+            return result;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
@@ -48,6 +68,18 @@ namespace CursedProjectAN
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void YesButton_Click(object sender, RoutedEventArgs e)
+        {
+            result = MessageBoxResult.Yes;
+            this.Close();
+        }
+
+        private void NoButton_Click(object sender, RoutedEventArgs e)
+        {
+            result = MessageBoxResult.No;
+            this.Close();
         }
     }
 }

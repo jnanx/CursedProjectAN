@@ -19,6 +19,19 @@ namespace CursedProjectAN
 
         public string login;
         public string password;
+        public string passportnum;
+        public string passportser;
+        public string name;
+        public string surname;
+        public string middlename;
+        public string sex;
+        public string dateofbirth;
+        public string phonenum;
+        public string mail;
+        public int numofvouchers;
+        public int role;
+
+        //public string password;
 
     }
 }

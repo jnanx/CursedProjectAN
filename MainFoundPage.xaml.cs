@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CursedProjectAN
 {
     /// <summary>
-    /// Логика взаимодействия для SearchFrame.xaml
+    /// Логика взаимодействия для MainFoundPage.xaml
     /// </summary>
-    public partial class SearchFrame : Page
+    public partial class MainFoundPage : Page
     {
-        public SearchFrame()
+        public MainFoundPage()
         {
             InitializeComponent();
         }

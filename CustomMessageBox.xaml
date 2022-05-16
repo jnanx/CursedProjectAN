@@ -11,9 +11,33 @@
         Background="Transparent">
     <Border Background="{StaticResource BrightOrange}" CornerRadius="12" MouseDown="Grid_MouseDown">
         <Grid>
-            
-            <Button Content="Ok" 
-                
+
+            <Button Content="Да" 
+                Name="YesButton"
+                    Style="{StaticResource CustomMaterialDesignPaperButton}"
+                    Background="{StaticResource BrightYellow}"
+                    BorderBrush="{StaticResource BrightMagenta}"
+                    Foreground="{StaticResource BrightMagenta}"
+                    HorizontalAlignment="Right" 
+                    Margin="0,0,170,10" 
+                    VerticalAlignment="Bottom"
+                    Width="60" 
+                    Click="YesButton_Click"/>
+
+            <Button Content="Нет" 
+                Name="NoButton"
+                    Style="{StaticResource CustomMaterialDesignPaperButton}"
+                    Background="{StaticResource BrightYellow}"
+                    BorderBrush="{StaticResource BrightMagenta}"
+                    Foreground="{StaticResource BrightMagenta}"
+                    HorizontalAlignment="Right" 
+                    Margin="0,0,105,10" 
+                    VerticalAlignment="Bottom"
+                    Width="60" 
+                    Click="NoButton_Click"/>
+
+            <Button Content="Закрыть" 
+                Name="CloseButton"
                     Style="{StaticResource CustomMaterialDesignPaperButton}"
                     Background="{StaticResource BrightMagenta}"
                     BorderBrush="{StaticResource BrightMagenta}"
@@ -21,8 +45,9 @@
                     HorizontalAlignment="Right" 
                     Margin="0,0,10,10" 
                     VerticalAlignment="Bottom"
-                    Width="75" 
-                    Click="OkButton_Click"/>
+                    Width="90" 
+                    Click="CloseButton_Click"/>
+            
             <TextBlock x:Name="TextMessageBox"
                 HorizontalAlignment="Center"
                        Foreground="{StaticResource BrightMagenta}"

@@ -14,6 +14,27 @@
     </Page.Background>
 
     <Grid>
+        <Button Click="BackToMain_Click"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Width="80" 
+                Height="80"  
+                materialDesign:ButtonAssist.CornerRadius="60"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="0,0,0,0"
+                Background="Transparent"
+                Foreground="{StaticResource BrightDarkRed}"
+                BorderBrush="Transparent"
+                Command="NavigationCommands.BrowseBack">
+
+            <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\closeimage.png"
+                   Stretch="UniformToFill"
+                   Height="50" Width="50"
+                   Margin="0,0,0,0"/>
+
+        </Button>
+
         <DataGrid AutoGenerateColumns="False" 
                   x:Name="AllTours" 
                   HorizontalAlignment="Left" 

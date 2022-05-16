@@ -38,7 +38,9 @@
                 Panel.ZIndex="1">
 
             <StackPanel Orientation="Horizontal">
-                <ComboBox Background="Transparent" 
+                <ComboBox x:Name="CityFrom"
+                    Background="Transparent" 
+                          IsTextSearchEnabled="True"
                  Height="60"
                  Width="200"
                  HorizontalAlignment="Left"
@@ -62,7 +64,8 @@
                     <ComboBoxItem Content="Papa"/>
                 </ComboBox>
 
-                <ComboBox Background="Transparent" 
+                <ComboBox x:Name="CityTo" 
+                    Background="Transparent" 
                     Height="60"
                     Width="200"
                     HorizontalAlignment="Left"
@@ -94,6 +97,7 @@
                     materialDesign:HintAssist.IsFloating="True"
                     materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource BrightCoral}"
                             
+                            x:Name="PickDate"
                     Margin="5,0,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
@@ -227,11 +231,27 @@
                                 VerticalAlignment="Center"
                                 Background="{StaticResource BrightOrange}"
                                 BorderBrush="{StaticResource BrightOrange}"
-                                BorderThickness="2">
-                    <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\searchpic.png"
+                                BorderThickness="2"
+                                 FontSize="16"
+                                 Foreground="{StaticResource BrightDarkRed}"
+                                 VerticalContentAlignment="Bottom"
+                                 >
+                    <Image Source="C:\Users\Самар\Desktop\Курсач\CursedProjectAN\Images\airplane_icon.png"
                                    Stretch="UniformToFill"
                                    VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"/>
+                                   HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5"
+                           Margin="5,0,0,0"
+                           >
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="50"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+
                 </local:NavButton>
             </StackPanel>
         </Border>
@@ -245,8 +265,8 @@
                                 Height="60"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Left"
-                                Background="{StaticResource BrightOrange}"
-                                BorderBrush="{StaticResource BrightOrange}"
+                                Background="{StaticResource BrightCoral}"
+                                BorderBrush="{StaticResource BrightCoral}"
                                 BorderThickness="2"
                                 FontSize="20"
                                 NavUri="\FoundPage.xaml" 

@@ -65,18 +65,84 @@ namespace CursedProjectAN
                     SqlDataAdapter convertsqltovs = new SqlDataAdapter(login);
                     convertsqltovs.Fill(containsi);
                     i = Convert.ToInt32(containsi.Rows.Count.ToString());
+
+                    SqlParameter RoleParam = new SqlParameter("@RoleID", SqlDbType.Char, 1);
+
                     if (i == 0)
                     {
                         CustomMessageBox.Show("Неверный логин или пароль");
                     }
                     else
                     {
+
                         var account = Account.getInstance();
                         account.login = LogLoginBox.Text;
                         account.password = LogPasswordBox.Password;
-                        LogInMainWindow logInMainWindow = new LogInMainWindow();
-                        logInMainWindow.Show();
-                        this.Close();
+                        
+                        SqlCommand GetClientName = new SqlCommand("SELECT clientName FROM clients WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var name = GetClientName.ExecuteScalar();
+                        if (name != null)
+                            account.name = name.ToString();
+
+                        SqlCommand GetClientSurname = new SqlCommand("SELECT clientSurname FROM clients WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var surname = GetClientSurname.ExecuteScalar();
+                        if (surname != null)
+                            account.surname = surname.ToString();
+
+                        SqlCommand GetClientMiddleName = new SqlCommand("SELECT clientMiddlename FROM clients WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var middlename = GetClientMiddleName.ExecuteScalar();
+                        if (middlename != null)
+                            account.middlename = middlename.ToString();
+
+                        SqlCommand GetClientPassNum = new SqlCommand("SELECT passportNumber FROM clients WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var passnum = GetClientPassNum.ExecuteScalar();
+                        if (passnum != null)
+                            account.passportnum = passnum.ToString();
+
+                        SqlCommand GetClientPassSer = new SqlCommand("SELECT passportSeries FROM clients WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var passser = GetClientPassSer.ExecuteScalar();
+                        if (passser != null)
+                            account.passportser = passser.ToString();
+
+                        SqlCommand GetClientEmail = new SqlCommand("SELECT [e-mail] FROM clients WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var email= GetClientEmail.ExecuteScalar();
+                        if (email != null)
+                            account.mail = email.ToString();
+
+                        SqlCommand GetClientPhone = new SqlCommand("SELECT phoneNumber FROM clients WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var phone = GetClientPhone.ExecuteScalar();
+                        if (phone != null)
+                            account.phonenum = phone.ToString();
+
+                        SqlCommand GetClientDateOfBirth = new SqlCommand("SELECT date_of_birth FROM clients WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var Dateofbirth = GetClientDateOfBirth.ExecuteScalar();
+                        if (Dateofbirth != null)
+                            account.dateofbirth = Dateofbirth.ToString();
+
+                        SqlCommand GetClientSex = new SqlCommand("SELECT sex FROM clients WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var Sex = GetClientSex.ExecuteScalar();
+                        if (Sex != null)
+                            account.sex = Sex.ToString();
+
+                        SqlCommand GetClientRole = new SqlCommand("SELECT roleID FROM users WHERE login = '" + LogLoginBox.Text + "'", toLogin);
+                        var role = GetClientRole.ExecuteScalar();
+                        if (role != null)
+                            account.role =
+                            Convert.ToInt32(role.ToString());
+                        if (account.role == 1)
+                        {
+                            LogInMainWindow logInMainWindow = new LogInMainWindow();
+                            logInMainWindow.Show();
+                            this.Close();
+                        }
+                        if (account.role == 0)
+                        {
+                            AdminMainPage adminMainPage = new AdminMainPage();
+                            adminMainPage.Show();
+                            this.Close();
+                        }
+
+
                     }
                     toLogin.Close();
                 }

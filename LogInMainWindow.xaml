@@ -31,6 +31,26 @@
                    FontFamily="Bauhaus 93"/>
 
         <Button Grid.Row="0" 
+            Click="YoVacations_Click"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Width="220" 
+                Height="70"  
+                materialDesign:ButtonAssist.CornerRadius="60"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="0,0,80,0"
+                Background="Transparent"
+                Foreground="{StaticResource BrightDarkRed}"
+                BorderBrush="Transparent"
+                Content="Мои бронирования"
+                FontSize="20"/>
+
+
+
+
+
+        <Button Grid.Row="0" 
             Click="Account_Click"
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Top" 
@@ -51,6 +71,7 @@
             
         </Button>
 
+        
         <Frame Grid.Row="1" 
             x:Name="MainFrame" 
                Source="LoginSearchPage.xaml" 

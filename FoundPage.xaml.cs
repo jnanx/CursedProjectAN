@@ -77,19 +77,38 @@ namespace CursedProjectAN
             {
                 AllTours.Visibility = Visibility.Hidden;
                 AllSearchedTours.Visibility = Visibility.Visible;
-                PickStartDate.Visibility = Visibility.Visible;
-                if (PickStartDate.SelectedDate != null)
-                {
+               // PickStartDate.Visibility = Visibility.Visible;
+               // if (PickStartDate.SelectedDate != null)
+               // {
                     SqlConnection sqlConnection = new SqlConnection(@"Data Source=LAPTOP-BFCVFHEM\SQLEXPRESS;Initial Catalog=TOUR_AGENCY;Integrated Security=True");
                     sqlConnection.Open();
-                    SqlCommand sqlSearchedToursCommand = new SqlCommand("SELECT dbo.countries.countryName, dbo.cities.cityName, dbo.tours.startDate, dbo.tours.endDate,  dbo.tours.duration, dbo.tours.numberOfVouchers FROM     dbo.tours INNER JOIN dbo.cities ON dbo.tours.cityID = dbo.cities.cityID INNER JOIN dbo.countries ON dbo.cities.countryID = dbo.countries.countryID WHERE startDate = '" + PickStartDate.Text + "'", sqlConnection);
+                    SqlCommand sqlSearchedToursCommand = new SqlCommand("SELECT dbo.countries.countryName, dbo.cities.cityName, dbo.tours.startDate, dbo.tours.endDate,  dbo.tours.duration, dbo.tours.numberOfVouchers FROM     dbo.tours INNER JOIN dbo.cities ON dbo.tours.cityID = dbo.cities.cityID INNER JOIN dbo.countries ON dbo.cities.countryID = dbo.countries.countryID WHERE startDate = '" + SearchTextBox.Text + "'", sqlConnection);
                     sqlSearchedToursCommand.ExecuteNonQuery();
                     DataTable allSearchedTours = new DataTable();
                     SqlDataAdapter sqlDataSearchedToursAdapter = new SqlDataAdapter(sqlSearchedToursCommand);
                     sqlDataSearchedToursAdapter.Fill(allSearchedTours);
                     AllSearchedTours.ItemsSource = allSearchedTours.DefaultView;
                     sqlConnection.Close();
-                }
+              //  }
+            }
+
+            if (SearchWithEndDate.IsChecked == true)
+            {
+                AllTours.Visibility = Visibility.Hidden;
+                AllSearchedTours.Visibility = Visibility.Visible;
+                // PickStartDate.Visibility = Visibility.Visible;
+                // if (PickStartDate.SelectedDate != null)
+                // {
+                SqlConnection sqlConnection = new SqlConnection(@"Data Source=LAPTOP-BFCVFHEM\SQLEXPRESS;Initial Catalog=TOUR_AGENCY;Integrated Security=True");
+                sqlConnection.Open();
+                SqlCommand sqlSearchedToursCommand = new SqlCommand("SELECT dbo.countries.countryName, dbo.cities.cityName, dbo.tours.startDate, dbo.tours.endDate,  dbo.tours.duration, dbo.tours.numberOfVouchers FROM     dbo.tours INNER JOIN dbo.cities ON dbo.tours.cityID = dbo.cities.cityID INNER JOIN dbo.countries ON dbo.cities.countryID = dbo.countries.countryID WHERE endDate = '" + SearchTextBox.Text + "'", sqlConnection);
+                sqlSearchedToursCommand.ExecuteNonQuery();
+                DataTable allSearchedTours = new DataTable();
+                SqlDataAdapter sqlDataSearchedToursAdapter = new SqlDataAdapter(sqlSearchedToursCommand);
+                sqlDataSearchedToursAdapter.Fill(allSearchedTours);
+                AllSearchedTours.ItemsSource = allSearchedTours.DefaultView;
+                sqlConnection.Close();
+                //  }
             }
 
             if (SearchWithEndDate.IsChecked == true)
@@ -112,7 +131,10 @@ namespace CursedProjectAN
             }
         }
 
-        
+        private void BackToMain_Click(object sender, RoutedEventArgs e)
+        {
+          
+        }
     }
 
 }
