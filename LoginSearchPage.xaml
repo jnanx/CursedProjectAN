@@ -60,8 +60,6 @@
                     <ComboBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource BrightCoralColor}"/>
                     </ComboBox.BorderBrush>
-                    <ComboBoxItem Content="Mama"/>
-                    <ComboBoxItem Content="Papa"/>
                 </ComboBox>
 
                 <ComboBox x:Name="CityTo" 
@@ -86,8 +84,6 @@
                     <ComboBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource BrightCoralColor}"/>
                     </ComboBox.BorderBrush>
-                    <ComboBoxItem Content="Mama"/>
-                    <ComboBoxItem Content="Papa"/>
                 </ComboBox>
 
                 <DatePicker Style="{StaticResource MaterialDesignOutlinedDatePicker}"

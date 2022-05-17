@@ -25,6 +25,7 @@ namespace CursedProjectAN
         public FoundPage()
         {
             InitializeComponent();
+            
             ToursListView();
         }
 

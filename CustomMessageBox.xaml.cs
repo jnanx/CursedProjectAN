@@ -27,7 +27,7 @@ namespace CursedProjectAN
 
         //static CustomMessageBox customMessageBox;
 
-        static MessageBoxResult result = MessageBoxResult.Cancel;
+        static MessageBoxResult result = MessageBoxResult.None;
         public static MessageBoxResult Show(string text)
         {
             var cMessageBox = new CustomMessageBox();

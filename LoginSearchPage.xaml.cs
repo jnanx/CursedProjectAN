@@ -117,7 +117,7 @@ namespace CursedProjectAN
         {
             if (account.passportnum != null)
             {
-               // if () {
+               // if (tours.) {
                     if (CityFrom.SelectedItem != null)
                     {
 
@@ -226,7 +226,7 @@ namespace CursedProjectAN
                         else CustomMessageBox.Show("Укажите город прибытия");
                     }
                     else CustomMessageBox.Show("Укажите город отправки");
-               // }
+             //   }
                // else CustomMessageBox.Show("Мест больше нет");
             }
             else CustomMessageBox.Show("Заполните данные аккаунта");
