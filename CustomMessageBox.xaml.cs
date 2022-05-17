@@ -27,7 +27,7 @@ namespace CursedProjectAN
 
         //static CustomMessageBox customMessageBox;
 
-        static MessageBoxResult result = MessageBoxResult.None;
+        private static MessageBoxResult result = MessageBoxResult.None;
         public static MessageBoxResult Show(string text)
         {
             var cMessageBox = new CustomMessageBox();
@@ -48,8 +48,9 @@ namespace CursedProjectAN
         public static MessageBoxResult ShowYN(string text)
         {
             var cMessageBox = new CustomMessageBox();
+            cMessageBox.CloseButton.Visibility = Visibility.Collapsed;
             cMessageBox.TextMessageBox.Text = text;
-            cMessageBox.Show();
+            cMessageBox.ShowDialog();
 
 
             if (string.IsNullOrWhiteSpace(text))

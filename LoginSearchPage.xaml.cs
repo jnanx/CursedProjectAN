@@ -117,7 +117,6 @@ namespace CursedProjectAN
         {
             if (account.passportnum != null)
             {
-               // if (tours.) {
                     if (CityFrom.SelectedItem != null)
                     {
 
@@ -136,10 +135,11 @@ namespace CursedProjectAN
                                                 SqlConnection sqlConnection = new SqlConnection(@"Data Source=LAPTOP-BFCVFHEM\SQLEXPRESS;Initial Catalog=TOUR_AGENCY;Integrated Security=True");
                                                 sqlConnection.Open();
                                                 int PeopleCount = Int32.Parse(PeopleCounter.Text);
-                                                int Cost = 27000;
-                                                if (PeopleCount > 1)
+                                                int DayCount = Int32.Parse(DayCounter.Text);
+                                                int Cost = 4200;
+                                                if (PeopleCount >= 1)
                                                 {
-                                                    Cost = Cost * PeopleCount;
+                                                    Cost = Cost * PeopleCount * DayCount;
                                                 }
                                                 SqlCommand SelectCity = new SqlCommand("SELECT cityID FROM cities WHERE cityName = @cityName", sqlConnection);
                                                 SelectCity.Parameters.AddWithValue("@cityName", CityTo.Text);
@@ -149,14 +149,16 @@ namespace CursedProjectAN
 
                                                     City_ID = (Int32)DataReaderCity.GetValue(0);
 
-
+                                                 
                                                 }
                                                 DataReaderCity.Close();
 
-                                                SqlCommand SelectTour = new SqlCommand("SELECT tourID FROM tours WHERE cityID = @cityID and startDate <= @startDate and endDate >= @startDate", sqlConnection);
+                                                SqlCommand SelectTour = new SqlCommand("SELECT tourID FROM tours WHERE cityID = @cityID and startDate <= @startDate and endDate >= @endDate AND numberOfVouchers - @PeopleCounter >= 0", sqlConnection);
                                                 SelectTour.Parameters.AddWithValue("@cityID", City_ID);
                                                 SelectTour.Parameters.AddWithValue("@startDate", PickDate.Text);
-                                                var DataReaderTour = SelectTour.ExecuteReader();
+                                                SelectTour.Parameters.AddWithValue("@PeopleCounter", PeopleCounter.Text);
+                                                SelectTour.Parameters.AddWithValue("@endDate", Convert.ToDateTime(PickDate.Text).AddDays(Convert.ToDouble(DayCounter.Text)));
+                                            var DataReaderTour = SelectTour.ExecuteReader();
 
                                                 if (DataReaderTour.HasRows)
                                                 {
@@ -185,7 +187,9 @@ namespace CursedProjectAN
                                                         CustomMessageBox.Show("Ошибка бронирования");
                                                     }
 
-                                                    SqlCommand updateNumOfVouchers = new SqlCommand("UPDATE tours SET numberOfVouchers = numberOfVouchers - '" + PeopleCounter.Text + "' WHERE tourID = '" + Tour_ID + "'", sqlConnection);
+                                                    SqlCommand updateNumOfVouchers = new SqlCommand("UPDATE tours SET numberOfVouchers = numberOfVouchers - @peopleCounter WHERE tourID = @tourID", sqlConnection);
+                                                    updateNumOfVouchers.Parameters.AddWithValue("@peopleCounter", PeopleCounter.Text);
+                                                    updateNumOfVouchers.Parameters.AddWithValue("@tourID", Tour_ID);
                                                     updateNumOfVouchers.ExecuteScalar();
 
                                                     sqlConnection.Close();
@@ -204,8 +208,6 @@ namespace CursedProjectAN
                                                             break;
                                                         case MessageBoxResult.No:
 
-                                                            break;
-                                                        case MessageBoxResult.Cancel:
                                                             break;
                                                     }
                                                 }
@@ -226,8 +228,6 @@ namespace CursedProjectAN
                         else CustomMessageBox.Show("Укажите город прибытия");
                     }
                     else CustomMessageBox.Show("Укажите город отправки");
-             //   }
-               // else CustomMessageBox.Show("Мест больше нет");
             }
             else CustomMessageBox.Show("Заполните данные аккаунта");
         }
