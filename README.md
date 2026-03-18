@@ -7,6 +7,9 @@ The system is designed for managing and booking travel tours in a турист a
 
 It allows users to search, view, and book tours, while administrators can manage the database content.
 
+Explanatory Note in russian:
+https://www.dropbox.com/scl/fi/efzhygrymwe3agg4y29h8/.docx?rlkey=k8d82z7vjuwwg3g3qcvotq8py&st=5qd2mjex&dl=0
+
 ---
 
 ## ⚙️ Technologies Used
